@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo-Fi News TV</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #eee;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #90cdf4;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    .headline {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.25rem;
+    }
+    .art {
+      max-width: 90%;
+      max-height: 500px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+    }
+    footer {
+      background: #000;
+      color: #ffd700;
+      padding: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    📻 Lo-Fi Beats + Weather: {{ weather.temp }}°F, {{ weather.description }}
+  </header>
+
+  <main>
+    <div class="headline">
+      📰 <strong>Top Headline:</strong> {{ headline }}
+    </div>
+
+    {% if art_file %}
+      <img class="art" src="/static/art/{{ art_file }}" alt="Generated Art" />
+    {% else %}
+      <p>No AI art available. Check OpenAI settings or try again later.</p>
+    {% endif %}
+  </main>
+
+  <footer>
+    {{ headline }}
+  </footer>
+</body>
+</html>
